@@ -24,6 +24,10 @@
     padding: 0;
 }
 
+body {
+    background: rgb(114 161 194 / 63%);
+}
+
 .main {
     display: flex;
     justify-content: center;
