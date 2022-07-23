@@ -98,8 +98,7 @@ body {
     transition: 0.3s all;
 }
 
-.button:hover, 
-.button:focus {
+.button:hover {
     cursor: pointer;
 }
 
@@ -120,6 +119,12 @@ body {
     color: var(--button-clear-char); 
 }
 
+.button-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .button-equality {
     grid-row-start: 4;
     grid-row-end: 6;
@@ -130,22 +135,17 @@ body {
 }
 
 .button-operation:hover,
-.button-operation:focus,
-.button-equality:hover,
-.button-equality:focus {
+.button-equality:hover {
     background-color: var(--button-operation-active-bg);
     color: var(--button-operation-active-char);
 }
 
-.button-number:hover,
-.button-number:focus {
+.button-number:hover {
     background-color: var(--button-number-active-bg);
 }
 
 .button-clear:hover,
-.button-clear:focus,
-.button-delete:hover,
-.button-delete:focus {
+.button-delete:hover {
     background-color: var(--button-clear-active-bg);
     color: var(--button-clear-active-char);
 }
