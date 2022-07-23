@@ -8,8 +8,12 @@
     --button-operation-char: #339DFF;
     --button-clear-bg: #616161;
     --button-clear-char: #A5A5A5;
+    
+    --button-number-active-bg: #4A4F63;
     --button-operation-active-bg: #1991FF;
     --button-operation-active-char: #B2DAFF;
+    --button-clear-active-bg: #929090;
+    --button-clear-active-char: #E4DCDC;
 }
 
 *,
@@ -87,6 +91,12 @@
     font-size: 32px;
     line-height: 48px;
     border: none;
+    transition: 0.3s all;
+}
+
+.button:hover, 
+.button:focus {
+    cursor: pointer;
 }
 
 .button-number {
@@ -113,4 +123,25 @@
 
 .button-wide {
     grid-column-end: span 2;
+}
+
+.button-operation:hover,
+.button-operation:focus,
+.button-equality:hover,
+.button-equality:focus {
+    background-color: var(--button-operation-active-bg);
+    color: var(--button-operation-active-char);
+}
+
+.button-number:hover,
+.button-number:focus {
+    background-color: var(--button-number-active-bg);
+}
+
+.button-clear:hover,
+.button-clear:focus,
+.button-delete:hover,
+.button-delete:focus {
+    background-color: var(--button-clear-active-bg);
+    color: var(--button-clear-active-char);
 }
