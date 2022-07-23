@@ -1,7 +1,47 @@
+:root {
+    --button-number-bg: #303136;
+    --button-number-char: #29A8FF;
+    --button-operation-bg: #005DB2;
+    --button-operation-char: #339DFF;
+    --button-clear-bg: #616161;
+    --button-clear-char: #A5A5A5;
+    --button-operation-active-bg: #1991FF;
+    --button-operation-active-char: #B2DAFF;
+}
+
 *,
 *::after,
 *::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+.main {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.button {
+    padding: 6px 4px;
+    border-radius: 16px;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.button-number {
+    background-color: var(--button-number-bg);
+    color: var(--button-number-char);
+}
+
+.button-operation,
+.button-equality {
+    background-color: var(--button-operation-bg);
+    color: var(--button-operation-char);
+}
+
+.button-clear,
+.button-delete {
+    background-color: var(--button-clear-bg);
+    color: var(--button-clear-char); 
 }
