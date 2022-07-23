@@ -29,6 +29,7 @@
 
 .calculator {
     margin-top: 100px;
+    padding: 40px 34px;
     height: 70vh;
     width: 500px;
     background: linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
@@ -50,6 +51,19 @@
     font-size: 48px;
     line-height: 72px;
     color: var(--display-result-char);
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.button-number-container {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
 }
 
 .button {
