@@ -60,10 +60,13 @@
 }
 
 .button-number-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 2;
-    grid-row-end: 5;
+    grid-row-end: 6;
 }
 
 .button {
@@ -88,4 +91,9 @@
 .button-delete {
     background-color: var(--button-clear-bg);
     color: var(--button-clear-char); 
+}
+
+.button-equality {
+    grid-row-start: 4;
+    grid-row-end: 6;
 }
