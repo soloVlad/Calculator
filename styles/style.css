@@ -41,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70vh;
+    min-height: 70vh;
     width: 500px;
     background: linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
     border-radius: 39px;

@@ -1,3 +1,8 @@
+const displayResult = document.querySelector(".display-result");
+const displayHistory = document.querySelector(".display-history");
+const buttonContainer = document.querySelector(".button-container")
+
+
 function add(num1, num2) {
     return num1 + num2;
 }
@@ -28,3 +33,21 @@ function operate(operator, num1, num2) {
             return "Unsupported operation, sorry :(";
     }
 }
+
+function handleNumberInput(target) {
+    let value = target.textContent;
+    // check for repeating dot
+    if (value === "." && displayResult.textContent.includes(".")) return 0;
+    // remove preceding zero
+    if (displayResult.textContent === "0") displayResult.textContent = value;
+    else displayResult.textContent += value;
+}
+
+function handleEvent(e) {
+    if (!e.target.classList.contains("button")) return 0;
+    if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
+    
+    console.log(e.target);
+}
+
+buttonContainer.addEventListener("click", handleEvent);
