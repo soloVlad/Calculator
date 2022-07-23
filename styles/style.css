@@ -1,4 +1,7 @@
 :root {
+    --display-result-char: #FFFFFF;
+    --display-history-char: #818181;
+    --display-history-operation-char: #109DFF;
     --button-number-bg: #303136;
     --button-number-char: #29A8FF;
     --button-operation-bg: #005DB2;
@@ -18,8 +21,35 @@
 }
 
 .main {
+    display: flex;
+    justify-content: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
+}
+
+.calculator {
+    margin-top: 100px;
+    height: 70vh;
+    width: 500px;
+    background: linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
+    border-radius: 39px;
+}
+
+.display-history {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--display-history-char);
+}
+
+.display-history-operation {
+    color: var(--display-history-operation-char);
+}
+
+.display-result {
+    font-size: 48px;
+    line-height: 72px;
+    color: var(--display-result-char);
 }
 
 .button {
