@@ -45,6 +45,7 @@ body {
     width: 500px;
     background: linear-gradient(191.34deg, #17181A -4.95%, #17181A 103.74%);
     border-radius: 39px;
+    box-shadow: 5px 5px 20px var(--button-number-bg);
 }
 
 .display {
