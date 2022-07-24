@@ -1,3 +1,4 @@
+const ROUND_FACTOR = 1e5;
 const displayResult = document.querySelector(".display-result");
 const displayHistory = document.querySelector(".display-history");
 const buttonContainer = document.querySelector(".button-container")
@@ -72,6 +73,10 @@ function resetVariables() {
     isPreviousInputOperation = false;
 }
 
+function roundResult(number) {
+    return Math.round(number * ROUND_FACTOR) / ROUND_FACTOR;
+}
+
 function handleNumberInput(target) {
     let value = target.textContent;
     // check for repeating dot
@@ -97,9 +102,11 @@ function handleOperationInput(target) {
 function handleEqualityInput() {
     if (operation === "") return 0;
     appendDisplayHistory(" " + displayResult.textContent + " =");
+    let result = operate(operation, +firstNumber, +displayResult.textContent);
+    let roundedResult = roundResult(result);
     // allow multiple operations without clicking by equality sign
-    firstNumber = operate(operation, +firstNumber, +displayResult.textContent);
-    updateDisplayResult(firstNumber);
+    firstNumber = roundedResult;
+    updateDisplayResult(roundedResult);
     resetVariables();
 }
 
@@ -110,8 +117,6 @@ function handleClearInput() {
 
 function handleDeleteInput() {
     let currentDisplayResult = displayResult.textContent;
-    console.log(currentDisplayResult);
-    console.log(typeof currentDisplayResult);
     let newDisplayResult = currentDisplayResult.slice(0, currentDisplayResult.length - 1) || "0";
     updateDisplayResult(newDisplayResult);
 }
