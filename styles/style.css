@@ -25,14 +25,16 @@
 }
 
 body {
+    height: 100vh;
     background: rgb(114 161 194 / 63%);
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 .main {
     display: flex;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
 }
 
 .calculator {
@@ -149,4 +151,25 @@ body {
 .button-delete:hover {
     background-color: var(--button-clear-active-bg);
     color: var(--button-clear-active-char);
+}
+
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-link {
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--button-operation-active-bg);
+    transition: 0.3s all ease-in;
+}
+
+.footer-link:hover {
+    color: var(--button-operation-bg);
+    cursor: pointer;
 }

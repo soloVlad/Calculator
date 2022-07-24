@@ -149,7 +149,6 @@ function handleEvent(e) {
 }
 
 function handleKeyboard(e) {
-    console.log(e.key);
     if ("+-*/".includes(e.key)) handleOperationInput(e.key);
     else isPreviousInputOperation = false;
     if (e.key >= 0 && e.key <= 9 || e.key === ".") handleNumberInput(e.key);
