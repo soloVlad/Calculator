@@ -69,6 +69,7 @@ function appendDisplayHistory (appendix) {
 function resetVariables() {
     firstNumber = 0;
     operation = "";
+    isPreviousInputOperation = false;
 }
 
 function handleNumberInput(target) {
@@ -102,12 +103,18 @@ function handleEqualityInput() {
     resetVariables();
 }
 
+function handleClearInput() {
+    clearDisplay();
+    resetVariables();
+}
+
 function handleEvent(e) {
     if (!e.target.classList.contains("button")) return 0;
     if (e.target.classList.contains("button-operation")) handleOperationInput(e.target);
     else isPreviousInputOperation = false;
     if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
     if (e.target.classList.contains("button-equality")) handleEqualityInput();
+    if (e.target.classList.contains("button-clear")) handleClearInput();
 
     console.log(e.target);
 }
