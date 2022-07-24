@@ -4,6 +4,7 @@ const buttonContainer = document.querySelector(".button-container")
 
 let firstNumber = 0;
 let operation = "";
+let isPreviousInputOperation = false;
 
 function add(num1, num2) {
     return num1 + num2;
@@ -80,24 +81,32 @@ function handleNumberInput(target) {
 }
 
 function handleOperationInput(target) {
-    firstNumber = displayResult.textContent;
+    // allow to change chosen operation
+    if (!isPreviousInputOperation) {
+        // allow multiple operations without clicking by equality sign
+        handleEqualityInput();
+        firstNumber = firstNumber || displayResult.textContent;
+    }
     operation = target.textContent;
     updateDisplayHistory(firstNumber + " " + operation);
     clearDisplayResult();
+    isPreviousInputOperation = true;
 }
 
 function handleEqualityInput() {
     if (operation === "") return 0;
-    appendDisplayHistory(displayResult.textContent + " =");
-    let result = operate(operation, +firstNumber, +displayResult.textContent);
-    updateDisplayResult(result);
+    appendDisplayHistory(" " + displayResult.textContent + " =");
+    // allow multiple operations without clicking by equality sign
+    firstNumber = operate(operation, +firstNumber, +displayResult.textContent);
+    updateDisplayResult(firstNumber);
     resetVariables();
 }
 
 function handleEvent(e) {
     if (!e.target.classList.contains("button")) return 0;
-    if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
     if (e.target.classList.contains("button-operation")) handleOperationInput(e.target);
+    else isPreviousInputOperation = false;
+    if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
     if (e.target.classList.contains("button-equality")) handleEqualityInput();
 
     console.log(e.target);
