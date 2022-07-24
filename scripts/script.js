@@ -148,4 +148,15 @@ function handleEvent(e) {
     if (e.target.classList.contains("button-delete")) handleDeleteInput();
 }
 
+function handleKeyboard(e) {
+    console.log(e.key);
+    if ("+-*/".includes(e.key)) handleOperationInput(e.key);
+    else isPreviousInputOperation = false;
+    if (e.key >= 0 && e.key <= 9 || e.key === ".") handleNumberInput(e.key);
+    if (e.key === "Enter") handleEqualityInput();
+    if (e.key === "Escape") handleClearInput();
+    if (e.key === "Backspace") handleDeleteInput();
+}
+
 buttonContainer.addEventListener("click", handleEvent);
+window.addEventListener("keydown", handleKeyboard);
