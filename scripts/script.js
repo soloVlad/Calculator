@@ -1,4 +1,7 @@
 const ROUND_FACTOR = 1e5;
+const ZERO_DIVISION_MESSAGE = `Please wait while the mathematicians come up with \
+the result of your division...\n\n1/0 minutes left`;
+
 const displayResult = document.querySelector(".display-result");
 const displayHistory = document.querySelector(".display-history");
 const buttonContainer = document.querySelector(".button-container")
@@ -102,6 +105,13 @@ function handleOperationInput(target) {
 function handleEqualityInput() {
     if (operation === "") return 0;
     appendDisplayHistory(" " + displayResult.textContent + " =");
+    // handle zero division
+    if (displayResult.textContent === "0" && operation === "/") {
+        alert(ZERO_DIVISION_MESSAGE);
+        clearDisplay();
+        resetVariables();
+        return 0;
+    }
     let result = operate(operation, +firstNumber, +displayResult.textContent);
     let roundedResult = roundResult(result);
     // allow multiple operations without clicking by equality sign
