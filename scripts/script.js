@@ -83,6 +83,9 @@ function roundResult(number) {
 function handleNumberInput(target) {
     let value = target.textContent;
 
+    // limit amount of numbers in input field
+    if (displayResult.textContent.length === 10) return 0;
+
     // check for repeating dot
     if (value === "." && displayResult.textContent.includes(".")) return 0;
     
