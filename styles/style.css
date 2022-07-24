@@ -6,14 +6,14 @@
     --button-number-char: #29A8FF;
     --button-operation-bg: #005DB2;
     --button-operation-char: #339DFF;
-    --button-clear-bg: #616161;
+    --button-clear-bg: #562d2d;
     --button-clear-char: #A5A5A5;
     
     --button-number-active-bg: #4A4F63;
     --button-operation-active-bg: #1991FF;
     --button-operation-active-char: #B2DAFF;
-    --button-clear-active-bg: #929090;
-    --button-clear-active-char: #E4DCDC;
+    --button-clear-active-bg: #963030;
+    --button-clear-active-char: #B2DAFF;
 }
 
 *,
