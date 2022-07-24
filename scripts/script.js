@@ -80,9 +80,7 @@ function roundResult(number) {
     return Math.round(number * ROUND_FACTOR) / ROUND_FACTOR;
 }
 
-function handleNumberInput(target) {
-    let value = target.textContent;
-
+function handleNumberInput(value) {
     // limit amount of numbers in input field
     if (displayResult.textContent.length === 10) return 0;
 
@@ -94,15 +92,15 @@ function handleNumberInput(target) {
     else appendDisplayResult(value);
 }
 
-function handleOperationInput(target) {
+function handleOperationInput(currentOperation) {
     // allow to change chosen operation
     if (!isPreviousInputOperation) {
         // allow multiple operations without clicking by equality sign
         handleEqualityInput();
         firstNumber = firstNumber || displayResult.textContent;
     }
-    operation = target.textContent;
-    updateDisplayHistory(firstNumber + " " + operation);
+    operation = currentOperation;
+    updateDisplayHistory(firstNumber + " " + currentOperation);
     clearDisplayResult();
     isPreviousInputOperation = true;
 }
@@ -142,9 +140,9 @@ function handleDeleteInput() {
 
 function handleEvent(e) {
     if (!e.target.classList.contains("button")) return 0;
-    if (e.target.classList.contains("button-operation")) handleOperationInput(e.target);
+    if (e.target.classList.contains("button-operation")) handleOperationInput(e.target.textContent);
     else isPreviousInputOperation = false;
-    if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
+    if (e.target.classList.contains("button-number")) handleNumberInput(e.target.textContent);
     if (e.target.classList.contains("button-equality")) handleEqualityInput();
     if (e.target.classList.contains("button-clear")) handleClearInput();
     if (e.target.classList.contains("button-delete")) handleDeleteInput();
