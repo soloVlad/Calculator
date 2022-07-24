@@ -82,8 +82,10 @@ function roundResult(number) {
 
 function handleNumberInput(target) {
     let value = target.textContent;
+
     // check for repeating dot
     if (value === "." && displayResult.textContent.includes(".")) return 0;
+    
     // remove preceding zero
     if (displayResult.textContent === "0" && value !== ".") updateDisplayResult(value);
     else appendDisplayResult(value);
@@ -105,6 +107,7 @@ function handleOperationInput(target) {
 function handleEqualityInput() {
     if (operation === "") return 0;
     appendDisplayHistory(" " + displayResult.textContent + " =");
+
     // handle zero division
     if (displayResult.textContent === "0" && operation === "/") {
         alert(ZERO_DIVISION_MESSAGE);
@@ -112,10 +115,13 @@ function handleEqualityInput() {
         resetVariables();
         return 0;
     }
+
     let result = operate(operation, +firstNumber, +displayResult.textContent);
     let roundedResult = roundResult(result);
+
     // allow multiple operations without clicking by equality sign
     firstNumber = roundedResult;
+
     updateDisplayResult(roundedResult);
     resetVariables();
 }
