@@ -49,6 +49,22 @@ function clearDisplay() {
     clearDisplayHistory();
 }
 
+function updateDisplayResult (result) {
+    displayResult.textContent = result;
+}
+
+function appendDisplayResult (appendix) {
+    displayResult.textContent += appendix;
+}
+
+function updateDisplayHistory (history) {
+    displayHistory.textContent = history;
+}
+
+function appendDisplayHistory (appendix) {
+    displayHistory.textContent += appendix;
+}
+
 function resetVariables() {
     firstNumber = 0;
     operation = "";
@@ -59,21 +75,22 @@ function handleNumberInput(target) {
     // check for repeating dot
     if (value === "." && displayResult.textContent.includes(".")) return 0;
     // remove preceding zero
-    if (displayResult.textContent === "0" && value !== ".") displayResult.textContent = value;
-    else displayResult.textContent += value;
+    if (displayResult.textContent === "0" && value !== ".") updateDisplayResult(value);
+    else appendDisplayResult(value);
 }
 
 function handleOperationInput(target) {
     firstNumber = displayResult.textContent;
     operation = target.textContent;
-    displayHistory.textContent = firstNumber + " " + operation;
+    updateDisplayHistory(firstNumber + " " + operation);
     clearDisplayResult();
 }
 
 function handleEqualityInput() {
     if (operation === "") return 0;
-    displayHistory.textContent += displayResult.textContent + " =";
-    displayResult.textContent = operate(operation, +firstNumber, +displayResult.textContent);
+    appendDisplayHistory(displayResult.textContent + " =");
+    let result = operate(operation, +firstNumber, +displayResult.textContent);
+    updateDisplayResult(result);
     resetVariables();
 }
 
