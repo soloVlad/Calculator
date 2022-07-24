@@ -108,6 +108,14 @@ function handleClearInput() {
     resetVariables();
 }
 
+function handleDeleteInput() {
+    let currentDisplayResult = displayResult.textContent;
+    console.log(currentDisplayResult);
+    console.log(typeof currentDisplayResult);
+    let newDisplayResult = currentDisplayResult.slice(0, currentDisplayResult.length - 1) || "0";
+    updateDisplayResult(newDisplayResult);
+}
+
 function handleEvent(e) {
     if (!e.target.classList.contains("button")) return 0;
     if (e.target.classList.contains("button-operation")) handleOperationInput(e.target);
@@ -115,8 +123,7 @@ function handleEvent(e) {
     if (e.target.classList.contains("button-number")) handleNumberInput(e.target);
     if (e.target.classList.contains("button-equality")) handleEqualityInput();
     if (e.target.classList.contains("button-clear")) handleClearInput();
-
-    console.log(e.target);
+    if (e.target.classList.contains("button-delete")) handleDeleteInput();
 }
 
 buttonContainer.addEventListener("click", handleEvent);
